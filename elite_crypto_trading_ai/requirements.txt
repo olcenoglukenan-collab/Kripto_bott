@@ -1,0 +1,8 @@
+requests>=2.32,<3
+pandas>=2.2,<3
+numpy>=2.0,<3
+streamlit>=1.40,<2
+streamlit-autorefresh>=1.0.1,<2
+python-dotenv>=1.0,<2
+websocket-client>=1.8,<2
+pytest>=8,<9

@@ -1,0 +1,866 @@
+2026-11-14 20:39:21,534 INFO Worker starting in PAPER mode
+2026-11-14 20:39:21,537 INFO Worker stopped
+2026-11-15 00:15:00,789 INFO Worker starting in PAPER mode
+2026-11-15 00:15:19,785 ERROR Worker loop error: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out.
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 929, in _error_catcher
+    yield
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 1459, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 1367, in _update_chunk_length
+    line = self._fp.fp.readline(_MAX_CHUNK_LINE_LENGTH + 1)  # type: ignore[union-attr]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 1284, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 1436, in read_chunked
+    with self._error_catcher():
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\response.py", line 934, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\worker.py", line 41, in main
+    tickers=client.ticker_24h(); valid=set(symbols)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 27, in ticker_24h
+    return self._get("/fapi/v1/ticker/24hr")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 13, in _get
+    response = self.session.get(self.base_url + path, params=params, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 827, in send
+    r.content
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\models.py", line 1042, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\models.py", line 943, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out.
+2026-11-15 00:15:23,088 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 00:15:24,066 INFO Websocket connected
+2026-11-15 00:15:24,068 INFO Websocket connected
+2026-11-15 00:15:24,172 INFO Websocket connected
+2026-11-15 00:15:35,478 INFO Scan: Evren=220; analiz=30; açýlan=3; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'BTCUSDT', 'side': 'SHORT', 'entry': 64391.6, 'qty': 0.0013299458601182213, 'stop': 64767.55515350945, 'target': 63639.689692981105, 'score': 70}, {'symbol': 'ETHUSDT', 'side': 'SHORT', 'entry': 1767.9, 'qty': 0.027391421229642464, 'stop': 1786.1476375039424, 'target': 1731.4047249921152, 'score': 70}, {'symbol': 'SOLUSDT', 'side': 'SHORT', 'entry': 69.83, 'qty': 0.6654705255161786, 'stop': 70.58094516671719, 'target': 68.32810966656561, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:16:14,095 ERROR ping/pong timed out - goodbye
+2026-11-15 00:16:20,374 INFO Websocket connected
+2026-11-15 00:16:32,959 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:17:10,419 ERROR ping/pong timed out - goodbye
+2026-11-15 00:17:16,650 INFO Websocket connected
+2026-11-15 00:17:36,283 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:18:06,665 ERROR ping/pong timed out - goodbye
+2026-11-15 00:18:13,326 INFO Websocket connected
+2026-11-15 00:18:37,755 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:18:43,338 ERROR ping/pong timed out - goodbye
+2026-11-15 00:18:50,189 INFO Websocket connected
+2026-11-15 00:19:20,835 ERROR ping/pong timed out - goodbye
+2026-11-15 00:19:27,855 INFO Websocket connected
+2026-11-15 00:19:38,209 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:20:37,916 ERROR ping/pong timed out - goodbye
+2026-11-15 00:20:40,439 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:20:44,258 INFO Websocket connected
+2026-11-15 00:21:14,275 ERROR ping/pong timed out - goodbye
+2026-11-15 00:21:20,612 INFO Websocket connected
+2026-11-15 00:21:39,490 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:25:56,496 INFO Worker starting in PAPER mode
+2026-11-15 00:25:58,021 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 00:25:58,984 INFO Websocket connected
+2026-11-15 00:25:58,984 INFO Websocket connected
+2026-11-15 00:25:58,991 INFO Websocket connected
+2026-11-15 00:26:09,669 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:27:10,852 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:28:10,005 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ETHUSDT', 'side': 'SHORT', 'entry': 1782.71, 'qty': 0.02510720582000566, 'stop': 1802.5059529759735, 'target': 1743.1180940480533, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:29:10,978 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:30:12,968 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:31:13,817 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:31:29,098 ERROR ping/pong timed out - goodbye
+2026-11-15 00:31:35,431 INFO Websocket connected
+2026-11-15 00:32:16,482 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:33:05,477 ERROR ping/pong timed out - goodbye
+2026-11-15 00:33:11,882 INFO Websocket connected
+2026-11-15 00:33:17,179 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:34:17,452 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:35:17,885 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:36:22,821 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:37:22,115 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:38:24,669 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:39:23,251 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:40:25,166 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'XRPUSDT', 'side': 'SHORT', 'entry': 0.9151, 'qty': 48.03757800798851, 'stop': 0.9253887023088202, 'target': 0.8945225953823598, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:41:22,369 ERROR ping/pong timed out - goodbye
+2026-11-15 00:41:26,245 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:41:28,639 INFO Websocket connected
+2026-11-15 00:42:27,159 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'EVAAUSDT', 'side': 'SHORT', 'entry': 1.498, 'qty': 7.145738481119539, 'stop': 1.5667590180558633, 'target': 1.3604819638882732, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:42:58,989 ERROR ping/pong timed out - goodbye
+2026-11-15 00:43:05,822 INFO Websocket connected
+2026-11-15 00:43:32,898 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:44:27,617 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:45:33,654 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:46:34,373 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:46:36,118 ERROR ping/pong timed out - goodbye
+2026-11-15 00:46:42,417 INFO Websocket connected
+2026-11-15 00:47:33,567 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:48:34,093 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:49:38,494 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:50:39,252 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:51:39,787 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:52:40,924 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:53:41,828 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:54:46,503 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:55:44,355 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:56:45,489 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:57:49,761 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:58:48,853 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 00:59:49,185 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:00:51,734 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:01:51,224 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:02:52,851 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:03:53,789 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:04:56,231 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:05:58,146 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:07:00,044 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:07:53,006 ERROR ping/pong timed out - goodbye
+2026-11-15 01:07:59,348 INFO Websocket connected
+2026-11-15 01:07:59,793 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:08:49,365 ERROR ping/pong timed out - goodbye
+2026-11-15 01:08:56,932 INFO Websocket connected
+2026-11-15 01:09:00,240 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:09:26,955 ERROR ping/pong timed out - goodbye
+2026-11-15 01:09:33,347 INFO Websocket connected
+2026-11-15 01:10:04,230 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=1; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:10:23,374 ERROR ping/pong timed out - goodbye
+2026-11-15 01:10:29,614 INFO Websocket connected
+2026-11-15 01:10:59,630 ERROR ping/pong timed out - goodbye
+2026-11-15 01:11:03,712 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'BTCUSDT', 'side': 'SHORT', 'entry': 63539.0, 'qty': 0.000965370845935171, 'stop': 64053.30639669215, 'target': 62510.387206615706, 'score': 85}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:11:06,228 INFO Websocket connected
+2026-11-15 01:11:56,294 ERROR ping/pong timed out - goodbye
+2026-11-15 01:12:02,617 INFO Websocket connected
+2026-11-15 01:12:05,954 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:13:08,828 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=1; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:13:12,682 ERROR ping/pong timed out - goodbye
+2026-11-15 01:13:19,204 INFO Websocket connected
+2026-11-15 01:13:49,212 ERROR ping/pong timed out - goodbye
+2026-11-15 01:13:56,120 INFO Websocket connected
+2026-11-15 01:14:07,580 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'SOLUSDT', 'side': 'SHORT', 'entry': 69.17, 'qty': 0.5830032978647387, 'stop': 70.02974754686939, 'target': 67.45050490626122, 'score': 85}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:14:46,155 ERROR ping/pong timed out - goodbye
+2026-11-15 01:14:52,427 INFO Websocket connected
+2026-11-15 01:15:11,630 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:15:22,443 ERROR ping/pong timed out - goodbye
+2026-11-15 01:15:28,681 INFO Websocket connected
+2026-11-15 01:16:11,925 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:17:12,898 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:17:18,721 ERROR ping/pong timed out - goodbye
+2026-11-15 01:17:24,934 INFO Websocket connected
+2026-11-15 01:17:54,951 ERROR ping/pong timed out - goodbye
+2026-11-15 01:18:01,197 INFO Websocket connected
+2026-11-15 01:18:12,778 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:18:31,216 ERROR ping/pong timed out - goodbye
+2026-11-15 01:18:37,419 INFO Websocket connected
+2026-11-15 01:19:13,594 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:20:19,700 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:21:20,006 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:22:23,844 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'BTCUSDT', 'side': 'SHORT', 'entry': 64135.6, 'qty': 0.0008999055156744449, 'stop': 64689.59706887116, 'target': 63027.60586225767, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:23:22,596 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:24:24,589 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:25:28,316 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:26:02,467 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 01:26:03,357 INFO Websocket connected
+2026-11-15 01:26:03,408 INFO Websocket connected
+2026-11-15 01:26:03,561 INFO Websocket connected
+2026-11-15 01:26:28,010 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:27:29,106 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:28:33,617 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:29:36,759 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:30:35,674 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:31:41,190 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:32:40,226 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:33:37,874 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:34:39,263 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:35:39,865 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:36:42,159 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:37:43,180 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:38:45,849 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:40:01,845 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:40:50,214 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:41:48,727 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:42:52,367 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:43:51,412 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:44:52,897 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:45:54,648 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:46:57,112 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:47:58,336 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:48:58,971 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:50:02,245 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:51:03,469 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:52:04,995 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:53:08,162 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:54:04,700 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:55:07,383 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:56:06,638 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:57:09,193 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:57:33,783 ERROR Connection to remote host was lost. - goodbye
+2026-11-15 01:57:39,686 INFO Websocket connected
+2026-11-15 01:58:09,917 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 01:59:10,582 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:00:14,428 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:01:12,666 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:02:19,694 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:03:17,469 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:04:15,768 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:05:19,754 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:06:22,006 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:07:18,911 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:08:20,916 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:09:23,016 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:10:26,583 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:11:31,387 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:12:30,670 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:13:31,433 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:14:31,311 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:15:31,408 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:16:31,440 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:16:44,707 ERROR Connection to remote host was lost. - goodbye
+2026-11-15 02:16:50,510 INFO Websocket connected
+2026-11-15 02:17:35,223 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:18:34,071 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:19:36,303 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:20:38,073 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:21:39,109 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:22:38,361 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:23:39,969 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:24:40,903 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:25:41,730 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:26:02,788 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 02:26:03,630 INFO Websocket connected
+2026-11-15 02:26:03,724 INFO Websocket connected
+2026-11-15 02:26:03,726 INFO Websocket connected
+2026-11-15 02:26:43,061 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:27:44,026 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:28:48,574 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:29:47,725 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:30:50,271 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:31:50,477 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:32:52,240 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:33:53,138 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:34:53,753 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:35:56,226 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:36:34,082 ERROR ping/pong timed out - goodbye
+2026-11-15 02:36:40,444 INFO Websocket connected
+2026-11-15 02:36:58,204 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:38:02,280 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:38:59,283 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:40:00,736 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:41:01,302 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:42:03,306 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:43:07,728 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:44:06,796 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:45:08,394 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:45:50,838 ERROR ping/pong timed out - goodbye
+2026-11-15 02:45:57,206 INFO Websocket connected
+2026-11-15 02:46:10,762 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:47:14,260 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:48:13,740 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:49:16,760 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:50:17,107 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:51:20,519 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'ZECUSDT', 'side': 'LONG', 'entry': 856.96, 'qty': 0.03902887670947374, 'stop': 844.2555345332504, 'target': 882.3689309334992, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:52:20,957 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:53:22,407 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:54:23,839 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:55:23,424 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:56:23,302 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:57:23,819 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:58:25,179 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 02:59:29,782 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:00:29,897 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:01:30,527 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:02:31,059 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:03:33,878 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:04:34,763 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:05:37,478 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:06:40,061 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:07:41,187 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:08:42,532 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:09:43,358 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:10:43,469 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:11:46,894 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:12:46,442 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:13:47,574 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:14:49,685 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:15:49,913 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:16:52,449 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:17:51,676 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:17:56,593 INFO Worker starting in PAPER mode
+2026-11-15 03:17:58,527 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 03:17:59,442 INFO Websocket connected
+2026-11-15 03:17:59,561 INFO Websocket connected
+2026-11-15 03:18:00,416 INFO Websocket connected
+2026-11-15 03:18:09,734 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:18:53,423 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:19:08,174 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:19:53,823 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:20:09,016 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:20:54,981 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:21:13,087 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:21:57,244 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:22:12,414 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:23:02,371 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:23:17,246 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:24:01,960 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:24:15,795 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:25:04,616 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:25:19,470 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:26:07,617 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:26:12,545 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 03:26:13,549 INFO Websocket connected
+2026-11-15 03:26:13,562 INFO Websocket connected
+2026-11-15 03:26:13,618 INFO Websocket connected
+2026-11-15 03:26:19,385 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:27:09,529 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:27:22,616 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:28:12,383 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:28:26,180 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:29:16,621 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:29:27,451 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:29:43,702 ERROR ping/pong timed out - goodbye
+2026-11-15 03:29:49,824 ERROR ping/pong timed out - goodbye
+2026-11-15 03:29:50,013 INFO Websocket connected
+2026-11-15 03:29:56,031 INFO Websocket connected
+2026-11-15 03:30:16,555 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:30:30,369 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:31:17,371 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:31:29,814 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:31:51,009 ERROR ping/pong timed out - goodbye
+2026-11-15 03:31:59,957 INFO Websocket connected
+2026-11-15 03:32:20,575 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:32:31,487 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:32:40,226 ERROR ping/pong timed out - goodbye
+2026-11-15 03:32:48,198 INFO Websocket connected
+2026-11-15 03:33:22,335 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:33:32,481 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:34:21,742 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:34:32,903 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:34:38,302 ERROR ping/pong timed out - goodbye
+2026-11-15 03:34:44,555 INFO Websocket connected
+2026-11-15 03:35:22,829 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:35:34,573 ERROR ping/pong timed out - goodbye
+2026-11-15 03:35:39,446 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:35:40,824 INFO Websocket connected
+2026-11-15 03:35:47,736 ERROR ping/pong timed out - goodbye
+2026-11-15 03:35:54,085 INFO Websocket connected
+2026-11-15 03:36:23,320 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:36:24,182 ERROR ping/pong timed out - goodbye
+2026-11-15 03:36:30,463 INFO Websocket connected
+2026-11-15 03:36:40,066 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:37:28,030 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:37:42,029 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:38:29,552 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:38:45,525 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:39:30,989 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:39:48,019 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:40:31,201 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:40:47,780 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:41:00,559 ERROR ping/pong timed out - goodbye
+2026-11-15 03:41:06,829 INFO Websocket connected
+2026-11-15 03:41:10,938 ERROR ping/pong timed out - goodbye
+2026-11-15 03:41:17,218 INFO Websocket connected
+2026-11-15 03:41:33,125 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:41:52,168 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:41:56,869 ERROR ping/pong timed out - goodbye
+2026-11-15 03:42:00,205 ERROR Connection to remote host was lost. - goodbye
+2026-11-15 03:42:03,226 INFO Websocket connected
+2026-11-15 03:42:06,276 INFO Websocket connected
+2026-11-15 03:42:33,611 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:42:52,371 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:43:34,066 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 03:43:57,482 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:05:56,557 ERROR ping/pong timed out - goodbye
+2026-11-15 10:05:59,476 ERROR ping/pong timed out - goodbye
+2026-11-15 10:06:05,322 ERROR Worker loop error: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\worker.py", line 40, in main
+    symbols=client.usdt_perpetual_symbols()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 21, in usdt_perpetual_symbols
+    info = self._get("/fapi/v1/exchangeInfo")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 13, in _get
+    response = self.session.get(self.base_url + path, params=params, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+2026-11-15 10:06:05,450 INFO Websocket connected
+2026-11-15 10:06:05,531 ERROR Connection to remote host was lost. - goodbye
+2026-11-15 10:06:05,547 ERROR Connection to remote host was lost. - goodbye
+2026-11-15 10:06:05,625 ERROR Worker loop error: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\worker.py", line 40, in main
+    symbols=client.usdt_perpetual_symbols()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 21, in usdt_perpetual_symbols
+    info = self._get("/fapi/v1/exchangeInfo")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\exchange\binance_public.py", line 13, in _get
+    response = self.session.get(self.base_url + path, params=params, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\ELITE KRIPTO 4 VERSIYON  GBT\elite_crypto_trading_ai\.venv\Lib\site-packages\requests\adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='fapi.binance.com', port=443): Read timed out. (read timeout=12)
+2026-11-15 10:06:08,423 INFO Websocket connected
+2026-11-15 10:06:11,376 INFO Websocket connected
+2026-11-15 10:06:11,538 INFO Websocket connected
+2026-11-15 10:06:11,554 ERROR 'NoneType' object has no attribute 'sock' - goodbye
+2026-11-15 10:06:11,596 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 10:06:12,430 INFO Websocket connected
+2026-11-15 10:06:12,524 INFO Websocket connected
+2026-11-15 10:06:12,524 INFO Websocket connected
+2026-11-15 10:06:13,397 ERROR ping/pong timed out - goodbye
+2026-11-15 10:06:17,301 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 10:06:18,163 INFO Websocket connected
+2026-11-15 10:06:18,213 INFO Websocket connected
+2026-11-15 10:06:18,256 INFO Websocket connected
+2026-11-15 10:06:22,502 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=2; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:06:28,995 INFO Scan: Evren=220; analiz=30; açýlan=2; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ETHUSDT', 'side': 'SHORT', 'entry': 1788.31, 'qty': 0.058939053293924, 'stop': 1796.6723159544183, 'target': 1771.5853680911632, 'score': 70}, {'symbol': 'SOLUSDT', 'side': 'SHORT', 'entry': 70.24, 'qty': 1.146410317441074, 'stop': 70.66973809255396, 'target': 69.38052381489209, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:07:20,112 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:07:23,639 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:08:22,729 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:08:23,051 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:09:23,277 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:09:25,435 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:10:25,856 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:11:26,884 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:12:29,232 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:13:30,943 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:14:31,711 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:15:35,515 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:16:37,454 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:17:38,241 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'XRPUSDT', 'side': 'SHORT', 'entry': 0.9568, 'qty': 80.30836140480345, 'stop': 0.9628985023688486, 'target': 0.9446029952623027, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:18:36,818 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:19:42,581 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:20:42,920 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:21:41,891 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:22:39,719 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:23:44,191 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:24:43,548 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:25:47,363 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:26:49,967 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:27:49,908 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:28:52,085 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:29:57,614 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:30:57,619 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:31:57,486 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:32:59,629 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:34:00,186 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:35:02,348 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:36:02,919 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:37:04,333 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:38:06,182 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:39:06,965 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:40:11,222 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:41:12,434 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:42:11,826 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:43:13,379 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:44:14,675 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:45:17,030 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:46:18,490 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:47:20,429 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:48:21,398 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ETHUSDT', 'side': 'SHORT', 'entry': 1775.38, 'qty': 0.057485608807849135, 'stop': 1783.9810133042504, 'target': 1758.1779733914996, 'score': 85}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:49:25,291 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:50:29,856 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:51:31,722 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:52:32,056 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:53:36,214 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:54:39,299 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:55:39,559 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:56:42,830 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:57:43,242 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:58:50,833 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 10:59:49,062 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'EVAAUSDT', 'side': 'LONG', 'entry': 1.8678, 'qty': 9.27730959197471, 'stop': 1.814831951628049, 'target': 1.973736096743902, 'score': 85}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:00:46,997 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:01:51,896 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:02:51,931 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:03:53,847 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:04:56,906 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:06:00,882 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:06:10,666 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 11:06:11,553 INFO Websocket connected
+2026-11-15 11:06:11,670 INFO Websocket connected
+2026-11-15 11:06:11,824 INFO Websocket connected
+2026-11-15 11:07:00,716 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:08:00,393 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:09:07,070 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:10:07,101 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:11:07,227 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:12:08,549 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:13:10,957 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:14:09,695 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:15:13,557 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:16:16,119 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:17:21,097 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:18:23,421 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=1; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:19:22,797 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'NEARUSDT', 'side': 'SHORT', 'entry': 3.097, 'qty': 20.584427116407532, 'stop': 3.121126115136728, 'target': 3.0487477697265444, 'score': 85}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:20:24,986 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:21:29,090 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:21:42,054 ERROR ping/pong timed out - goodbye
+2026-11-15 11:21:48,366 INFO Websocket connected
+2026-11-15 11:22:18,378 ERROR ping/pong timed out - goodbye
+2026-11-15 11:22:24,719 INFO Websocket connected
+2026-11-15 11:22:32,136 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:23:32,937 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:24:34,686 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:25:33,496 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:26:35,230 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:27:14,838 ERROR ping/pong timed out - goodbye
+2026-11-15 11:27:21,085 INFO Websocket connected
+2026-11-15 11:27:41,628 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'EVAAUSDT', 'side': 'LONG', 'entry': 2.1892, 'qty': 5.457440937356736, 'stop': 2.0987192816911784, 'target': 2.370161436617643, 'score': 85}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:28:44,071 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'NEARUSDT', 'side': 'SHORT', 'entry': 3.116, 'qty': 18.65128443516947, 'stop': 3.142311381559864, 'target': 3.0633772368802727, 'score': 70}] | skipped_details=['EVAAUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:29:45,720 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:30:43,034 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:31:48,796 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[{'symbol': 'BTCUSDT', 'side': 'LONG', 'entry': 64673.7, 'qty': 0.001457619899246472, 'stop': 64339.02629401454, 'target': 65343.04741197091, 'score': 70}] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:32:11,220 ERROR ping/pong timed out - goodbye
+2026-11-15 11:32:17,518 INFO Websocket connected
+2026-11-15 11:32:50,447 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:33:52,243 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:34:47,581 ERROR ping/pong timed out - goodbye
+2026-11-15 11:34:53,930 INFO Websocket connected
+2026-11-15 11:35:00,086 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:36:04,397 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:37:05,443 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:38:08,419 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:39:12,353 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=1; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:40:14,278 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ETHUSDT', 'side': 'LONG', 'entry': 1797.0, 'qty': 0.04390740363851579, 'stop': 1785.9782813876925, 'target': 1819.043437224615, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:41:14,514 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:42:14,875 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:43:16,706 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:44:19,236 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:45:27,001 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 11:46:24,317 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:32:00,429 INFO Worker starting in PAPER mode
+2026-11-15 21:32:05,928 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-15 21:32:06,922 INFO Websocket connected
+2026-11-15 21:32:06,951 INFO Websocket connected
+2026-11-15 21:32:07,074 INFO Websocket connected
+2026-11-15 21:32:18,967 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:33:32,747 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:34:21,328 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:35:20,866 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:36:22,883 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:37:25,836 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:38:27,087 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:39:27,861 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:40:28,179 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:41:31,134 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:42:33,584 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:43:33,790 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:44:33,548 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:45:33,513 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:46:34,211 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:47:35,906 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:48:35,759 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:49:37,726 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:50:37,513 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:51:40,559 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:52:44,600 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:53:45,806 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:54:44,950 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:55:46,283 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:56:50,326 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:57:53,742 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:58:56,249 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 21:59:55,572 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 22:00:58,591 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ZECUSDT', 'side': 'SHORT', 'entry': 895.99, 'qty': 0.0812544598846887, 'stop': 901.9114236363413, 'target': 884.1471527273175, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 22:01:57,159 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-15 22:02:34,610 INFO Worker stopped
+2026-11-16 00:33:58,777 INFO Worker starting in PAPER mode
+2026-11-16 00:34:01,953 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-16 00:34:02,876 INFO Websocket connected
+2026-11-16 00:34:02,940 INFO Websocket connected
+2026-11-16 00:34:03,005 INFO Websocket connected
+2026-11-16 00:34:12,755 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:35:16,940 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:36:15,079 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:37:16,579 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:38:18,280 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:39:17,522 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:40:19,672 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:41:19,171 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:42:22,168 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:43:25,710 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:44:29,444 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'SOLUSDT', 'side': 'LONG', 'entry': 71.85, 'qty': 1.6785846374863218, 'stop': 71.56065201612836, 'target': 72.42869596774325, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:45:28,315 INFO Scan: Evren=220; analiz=30; açýlan=1; kapanan=0; açýlamayan=3; eþik=55 | opened_details=[{'symbol': 'XRPUSDT', 'side': 'LONG', 'entry': 0.9649, 'qty': 130.81164852204938, 'stop': 0.9612088822149726, 'target': 0.9722822355700547, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'SOLUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:46:31,116 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:47:32,175 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:48:32,548 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 00:49:33,778 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:31:36,235 INFO Worker starting in PAPER mode
+2026-11-16 19:31:44,279 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-16 19:31:45,281 INFO Websocket connected
+2026-11-16 19:31:45,316 INFO Websocket connected
+2026-11-16 19:31:45,370 INFO Websocket connected
+2026-11-16 19:31:57,373 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=2; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:32:53,676 INFO Scan: Evren=220; analiz=30; açýlan=2; kapanan=0; açýlamayan=2; eþik=55 | opened_details=[{'symbol': 'ETHUSDT', 'side': 'LONG', 'entry': 1825.04, 'qty': 0.034743889957233084, 'stop': 1811.519076169475, 'target': 1852.08184766105, 'score': 70}, {'symbol': 'SOLUSDT', 'side': 'LONG', 'entry': 71.05, 'qty': 0.7566143622788303, 'stop': 70.42928395874547, 'target': 72.29143208250906, 'score': 70}] | skipped_details=['BTCUSDT: bu coin için zaten açýk pozisyon var', 'Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:33:53,913 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:34:58,782 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:35:59,927 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:37:02,313 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:38:02,562 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:39:05,020 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:40:09,382 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:41:11,319 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:42:11,932 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:43:12,706 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:44:16,783 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:45:20,589 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:46:16,357 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:47:18,227 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:48:23,729 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:49:28,385 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:50:31,632 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:51:31,079 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:52:30,392 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:53:32,580 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:54:36,801 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:55:36,736 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:56:40,557 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:57:45,424 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:58:47,240 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 19:59:48,228 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:00:49,590 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:00:55,509 ERROR ping/pong timed out - goodbye
+2026-11-16 20:01:01,743 INFO Websocket connected
+2026-11-16 20:01:51,777 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:02:54,661 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:03:56,415 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:04:58,968 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:06:01,697 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:07:01,449 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:08:05,395 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:09:09,879 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:10:11,980 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:11:14,597 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:12:17,742 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:13:19,921 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:14:21,757 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:15:23,341 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:16:23,569 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:17:25,570 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:18:26,928 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:19:31,401 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:20:32,916 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:21:34,452 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:22:34,759 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:23:35,075 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:24:35,782 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:25:39,086 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:26:42,248 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:27:43,806 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:28:48,816 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:29:47,253 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:30:11,898 ERROR ping/pong timed out - goodbye
+2026-11-16 20:30:18,072 INFO Websocket connected
+2026-11-16 20:30:49,983 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:31:43,266 INFO Universe refreshed: 220 symbols; feeds=3
+2026-11-16 20:31:44,165 INFO Websocket connected
+2026-11-16 20:31:44,204 INFO Websocket connected
+2026-11-16 20:31:44,260 INFO Websocket connected
+2026-11-16 20:31:55,004 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:32:53,643 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:33:56,603 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:34:59,140 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:36:00,160 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:37:01,733 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:38:02,969 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:39:03,907 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:40:05,193 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:41:08,383 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:42:11,338 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:43:13,190 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:44:16,971 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:45:14,099 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:46:16,790 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:47:19,361 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:48:22,216 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:49:25,189 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:50:26,342 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:51:28,661 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:52:32,255 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:53:34,902 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:54:36,817 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:55:39,190 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:56:43,268 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:57:46,073 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:58:49,992 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 20:59:52,753 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:01:00,165 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:02:02,287 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:03:05,880 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:04:06,044 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:05:08,676 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:06:10,521 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:07:16,755 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:08:22,106 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:09:34,917 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:10:39,132 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:11:39,973 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:12:44,758 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:13:52,413 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:14:54,407 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:15:56,350 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:16:57,287 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:17:58,391 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:19:01,845 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:20:12,216 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:21:13,391 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:22:15,302 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:23:17,306 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:24:17,755 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:25:17,902 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:26:20,547 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:27:23,084 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
+2026-11-16 21:28:26,682 INFO Scan: Evren=220; analiz=30; açýlan=0; kapanan=0; açýlamayan=1; eþik=55 | opened_details=[] | skipped_details=['Maksimum açýk pozisyon sayýsýna ulaþýldý']
